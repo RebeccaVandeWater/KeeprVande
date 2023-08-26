@@ -13,6 +13,8 @@ public class VaultsController : ControllerBase
   private readonly VaultsService _vaultsService;
   private readonly Auth0Provider _auth0Provider;
 
+  private readonly KeepsService _keepsService;
+
   public VaultsController(VaultsService vaultsService, Auth0Provider auth0Provider)
   {
     _vaultsService = vaultsService;
@@ -51,6 +53,44 @@ public class VaultsController : ControllerBase
       Vault vault = _vaultsService.GetVaultById(vaultId, userInfo?.Id);
 
       return Ok(vault);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+
+
+  [Authorize]
+  [HttpPut("{vaultId}")]
+  public async Task<ActionResult<Vault>> EditVault([FromBody] Vault vaultData, int vaultId)
+  {
+    try
+    {
+      Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+
+      Vault vault = _vaultsService.EditVault(vaultData, vaultId, userInfo.Id);
+
+      return Ok(vault);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+
+  [Authorize]
+  [HttpDelete("{vaultId}")]
+
+  public async Task<ActionResult<string>> RemoveVault(int vaultId)
+  {
+    try
+    {
+      Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+
+      _vaultsService.RemoveVault(vaultId, userInfo.Id);
+
+      return Ok("Vault successfully removed.");
     }
     catch (Exception e)
     {

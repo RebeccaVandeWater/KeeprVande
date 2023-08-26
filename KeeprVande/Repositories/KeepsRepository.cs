@@ -57,7 +57,7 @@ public class KeepsRepository
         COUNT(vk.id) AS kept,
         acc.*
         FROM keeps kp 
-        LEFT JOIN vaultkeeps vk ON vk.keepId = kp.id
+        LEFT JOIN vaultKeeps vk ON vk.keepId = kp.id
         JOIN accounts acc ON acc.id = kp.creatorId
         WHERE kp.id = @keepId
         GROUP BY kp.id
@@ -76,6 +76,33 @@ public class KeepsRepository
     return keep;
   }
 
+  internal List<Keep> GetUserKeeps(string profileId)
+  {
+    string sql = @"
+        SELECT
+        kp.*,
+        COUNT(vk.id) AS kept,
+        acc.*
+        FROM keeps kp 
+        LEFT JOIN vaultKeeps vk ON vk.keepId = kp.id
+        JOIN accounts acc ON acc.id = kp.creatorId
+        WHERE kp.creatorId = @profileId
+        GROUP BY kp.id
+        ;";
+
+    List<Keep> keeps = _db.Query<Keep, Profile, Keep>(
+      sql,
+      (keep, profile) =>
+      {
+        keep.Creator = profile;
+        return keep;
+      },
+      new { profileId }
+    ).ToList();
+
+    return keeps;
+  }
+
   internal Keep EditKeep(Keep originalKeep)
   {
     string sql = @"
@@ -90,7 +117,7 @@ public class KeepsRepository
         COUNT(vk.id) AS kept,
         acc.*
         FROM keeps kp 
-        LEFT JOIN vaultkeeps vk ON vk.keepId = kp.id
+        LEFT JOIN vaultKeeps vk ON vk.keepId = kp.id
         JOIN accounts acc ON acc.id = kp.creatorId
         WHERE kp.id = @Id
         GROUP BY kp.id
@@ -114,4 +141,5 @@ public class KeepsRepository
 
     _db.Execute(sql, new { keepId });
   }
+
 }

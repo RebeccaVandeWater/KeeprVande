@@ -42,7 +42,7 @@ CREATE TABLE
     ) default charset utf8 COMMENT '';
 
 CREATE TABLE
-    IF NOT EXISTS vaultkeeps(
+    IF NOT EXISTS vaultKeeps(
         id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
         creatorId VARCHAR(255) NOT NULL,
         vaultId INT NOT NULL,
@@ -52,4 +52,4 @@ CREATE TABLE
         FOREIGN KEY (keepId) REFERENCES keeps(id) ON DELETE CASCADE
     ) default charset utf8 COMMENT '';
 
-DROP TABLE vaultkeeps;
+DROP TABLE vaultKeeps;

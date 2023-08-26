@@ -8,10 +8,12 @@ namespace KeeprVande.Services;
 public class KeepsService
 {
   private readonly KeepsRepository _keepsRepository;
+  private readonly ProfilesService _profilesService;
 
-  public KeepsService(KeepsRepository keepsRepository)
+  public KeepsService(KeepsRepository keepsRepository, ProfilesService profilesService)
   {
     _keepsRepository = keepsRepository;
+    _profilesService = profilesService;
   }
 
   internal Keep CreateKeep(Keep keepData)
@@ -38,6 +40,15 @@ public class KeepsService
     }
 
     return keep;
+  }
+
+  internal List<Keep> GetUserKeeps(string profileId)
+  {
+    _profilesService.GetProfileById(profileId);
+
+    List<Keep> keeps = _keepsRepository.GetUserKeeps(profileId);
+
+    return keeps;
   }
 
   internal Keep EditKeep(Keep keepData, string userId, int keepId)
@@ -69,4 +80,5 @@ public class KeepsService
 
     _keepsRepository.RemoveKeep(keepId);
   }
+
 }

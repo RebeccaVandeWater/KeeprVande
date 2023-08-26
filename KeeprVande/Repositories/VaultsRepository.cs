@@ -50,4 +50,75 @@ public class VaultsRepository
 
     return vault;
   }
+
+  internal List<Vault> GetUserVaults(string profileId)
+  {
+    string sql = @"
+        SELECT 
+        vau.*,
+        acc.*
+        FROM vaults vau
+        JOIN accounts acc ON acc.id = vau.creatorId
+        WHERE vau.creatorId = @profileId
+        ;";
+
+    List<Vault> vaults = _db.Query<Vault, Profile, Vault>(
+      sql,
+      (vault, profile) =>
+      {
+        vault.Creator = profile;
+        return vault;
+      },
+      new { profileId }
+    ).ToList();
+
+    return vaults;
+  }
+
+  // internal List<Vault> GetMyVaults(string userId)
+  // {
+  //   string sql = "SELECT * FROM vaults WHERE creatorId = @userId;";
+
+  //   List<Vault> vaults = _db.Query<Vault>(sql, new { userId }).ToList();
+
+  //   return vaults;
+  // }
+
+  internal Vault EditVault(Vault originalVault)
+  {
+    string sql = @"
+        UPDATE vaults 
+        SET
+        name = @Name,
+        description = @Description,
+        img = @Img,
+        isPrivate = @isPrivate;
+        SELECT 
+        vau.*,
+        acc.*
+        FROM vaults vau
+        JOIN accounts acc ON acc.id = vau.creatorId
+        WHERE vau.id = @Id
+        ;";
+
+    Vault vault = _db.Query<Vault, Profile, Vault>(
+      sql,
+      (vault, profile) =>
+      {
+        vault.Creator = profile;
+        return vault;
+      },
+      originalVault
+    ).FirstOrDefault();
+
+    return vault;
+  }
+
+  internal void RemoveVault(int vaultId)
+  {
+    string sql = "DELETE FROM vaults WHERE id = @vaultId LIMIT 1;";
+
+    _db.Execute(sql, new { vaultId });
+  }
+
 }
