@@ -58,13 +58,6 @@ public class VaultsService
     return vaults;
   }
 
-  // internal List<Vault> GetMyVaults(string userId)
-  // {
-  //   List<Vault> vaults = _vaultsRepository.GetMyVaults(userId);
-
-  //   return vaults;
-  // }
-
   internal Vault EditVault(Vault vaultData, int vaultId, string userId)
   {
     Vault originalVault = GetVaultById(vaultId, userId);

@@ -40,7 +40,7 @@ public class VaultKeepsController : ControllerBase
   }
 
   [Authorize]
-  [HttpDelete("vaultKeepId")]
+  [HttpDelete("{vaultKeepId}")]
 
   public async Task<ActionResult<string>> RemoveVaultKeep(int vaultKeepId)
   {
