@@ -137,7 +137,8 @@ public class KeepsRepository
         SET
         name = @Name,
         description = @Description,
-        img = @Img
+        img = @Img,
+        views = @Views
         WHERE id = @Id;
         SELECT
         kp.*,

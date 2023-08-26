@@ -34,12 +34,24 @@ public class KeepsService
   }
   internal Keep GetKeepById(int keepId)
   {
+
     Keep keep = _keepsRepository.GetKeepById(keepId);
 
     if (keep == null)
     {
       throw new Exception("INVALID ID");
     }
+
+    return keep;
+  }
+
+  internal Keep GetKeepByIdAndEdit(int keepId)
+  {
+    Keep keep = GetKeepById(keepId);
+
+    keep.Views++;
+
+    _keepsRepository.EditKeep(keep);
 
     return keep;
   }

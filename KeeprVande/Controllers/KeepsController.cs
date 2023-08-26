@@ -56,11 +56,11 @@ public class KeepsController : ControllerBase
   }
 
   [HttpGet("{keepId}")]
-  public ActionResult<Keep> GetKeepById(int keepId)
+  public ActionResult<Keep> GetKeepByIdAndEdit(int keepId)
   {
     try
     {
-      Keep keep = _keepsService.GetKeepById(keepId);
+      Keep keep = _keepsService.GetKeepByIdAndEdit(keepId);
 
       return Ok(keep);
     }
