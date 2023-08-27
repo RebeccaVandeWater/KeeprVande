@@ -1,46 +1,44 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark px-3">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex align-items-center">
+<nav class="navbar navbar-expand-md bg-body-tertiary">
+  <div class="container-fluid">
+    <router-link class="navbar-brand" :to="{ name: 'Home' }">
+      <div class="d-flex align-items-center row ms-2 me-1">
         <button class="green-btn" title="Home">
           Home
         </button>
-      </div>
+      </div>  
     </router-link>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarText">
-      <ul class="navbar-nav me-auto">
-        <li>
-          <div class="btn-group">
-            <button class="clear-btn fs-5 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Create">
-              Create
-            </button>
-            <ul class="dropdown-menu dropdown-style">
-              <li class="ps-2">
-                new keep
-              </li>
-              <li  class="dropdown-divider"></li>
-              <li class="ps-2">
-                new vault
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-      <div>
-        <p class="m-0">
-          Keepr
-        </p>
-      </div>
-      <!-- LOGIN COMPONENT HERE -->
-      <div>
-        <Login />
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+      <div class="navbar-nav row justify-content-between align-items-center flex-grow-1">
+        <div class="btn-group dropdown-md dropstart col-3">
+          <button class="clear-btn fs-5 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Create">
+            Create
+          </button>
+          <ul class="dropdown-menu dropdown-style">
+            <li class="ps-2">
+              new keep
+            </li>
+            <li  class="dropdown-divider"></li>
+            <li class="ps-2">
+              new vault
+            </li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <span class="header-font d-none d-md-block">
+            keepr co.
+          </span>
+        </div>
+        <div class="col-3 d-flex justify-content-end">
+          <Login />
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 </template>
 
 <script>
@@ -73,9 +71,5 @@ a:hover {
     height: 64px;
   }
 
-.dropdown-style{
-  background-color: #B7C5B3;
-  font-weight: 600;
-}
 }
 </style>

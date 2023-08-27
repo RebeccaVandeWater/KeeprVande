@@ -23,6 +23,7 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
+@import url('https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&display=swap');
 
 :root{
   --main-height: calc(100vh - 32px - 64px);
@@ -55,6 +56,25 @@ export default {
 
 .clear-btn:hover{
   border: 1px solid #7da895;
+}
+
+.header-font{
+  font-family: 'Elsie', cursive;
+  font-weight: 900;
+  font-size: larger;
+}
+
+.dropdown-style{
+  background-color: #B7C5B3;
+  font-weight: 600;
+}
+
+.avatar-sm{
+  height: 2.5rem;
+  width: 2.5rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
 }
 
 </style>
