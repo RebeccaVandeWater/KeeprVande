@@ -34,20 +34,20 @@ export default {
   --tan: color(#CFB8AA);
 }
 
-.green-btn{
-  background-color: #618173;
+.tan-btn{
+  background-color: #CFB8AA;
   color: black;
   font-weight: 600;
   border-radius: 10px;
   border: none;
 }
 
-.green-btn:hover{
-  background-color: #7da895;
+.tan-btn:hover{
+  background-color: #e2c8b8;
 }
 
 .clear-btn{
-  background-color: none;
+  background-color: #f8f9fa;
   color: black;
   font-weight: 600;
   border-radius: 10px;
@@ -75,6 +75,51 @@ export default {
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
+}
+
+// .masonry-style{
+//   columns: 2 600px;
+//   column-gap: 1rem;
+//   div{
+//     width: 150px;
+//     margin: 0 1rem 1rem 0;
+//     display: inline-block;
+//     width: 100%;
+//   }
+//   @for $i from 1 through 26{
+//     div:nth-child(#{$i}){
+//       $h: (random(400) + 100) + px;
+//       height: $h;
+//       line-height: $h;
+//     }
+//   }
+// }
+
+// .masonry-style{
+//   display: grid;
+//   gap: 3px;
+//   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+//   grid-template-rows: auto;
+// }
+
+@media(min-width: 768px){
+  // .masonry-style{
+  // columns: 4 300px;
+  // column-gap: 1rem;
+  // div{
+  //   width: 150px;
+  //   margin: 0 1rem 1rem 0;
+  //   display: inline-block;
+  //   width: 100%;
+  // }
+  // @for $i from 1 through 26{
+  //   div:nth-child(#{$i}){
+  //     $h: (random(300) + 100) + px;
+  //     height: $h;
+  //     line-height: $h;
+  //   }
+  // }
+  // }
 }
 
 </style>

@@ -1,9 +1,9 @@
 <template>
-<nav class="navbar navbar-expand-md bg-body-tertiary">
+<nav class="navbar navbar-expand-md bg-body-tertiary border-bottom border-secondary-subtle">
   <div class="container-fluid">
     <router-link class="navbar-brand" :to="{ name: 'Home' }">
       <div class="d-flex align-items-center row ms-2 me-1">
-        <button class="green-btn" title="Home">
+        <button class="tan-btn" title="Home">
           Home
         </button>
       </div>  
