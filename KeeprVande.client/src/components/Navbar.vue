@@ -1,24 +1,44 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-expand-lg navbar-dark px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
+      <div class="d-flex align-items-center">
+        <button class="green-btn" title="Home">
+          Home
+        </button>
       </div>
     </router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
       aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link>
+          <div class="btn-group">
+            <button class="clear-btn fs-5 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Create">
+              Create
+            </button>
+            <ul class="dropdown-menu dropdown-style">
+              <li class="ps-2">
+                new keep
+              </li>
+              <li  class="dropdown-divider"></li>
+              <li class="ps-2">
+                new vault
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
+      <div>
+        <p class="m-0">
+          Keepr
+        </p>
+      </div>
       <!-- LOGIN COMPONENT HERE -->
-      <Login />
+      <div>
+        <Login />
+      </div>
     </div>
   </nav>
 </template>
@@ -52,5 +72,10 @@ a:hover {
   nav {
     height: 64px;
   }
+
+.dropdown-style{
+  background-color: #B7C5B3;
+  font-weight: 600;
+}
 }
 </style>

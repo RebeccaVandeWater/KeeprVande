@@ -5,9 +5,6 @@
   <main>
     <router-view />
   </main>
-   <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
-  </footer>
 </template>
 
 <script>
@@ -29,12 +26,35 @@ export default {
 
 :root{
   --main-height: calc(100vh - 32px - 64px);
+  --darkGreen: color(#2F463E);
+  --lightGreen: color(#618173);
+  --softGreen: color(#B7C5B3);
+  --cream: color(#F9F2DC);
+  --tan: color(#CFB8AA);
 }
 
-
-footer {
-  display: grid;
-  place-content: center;
-  height: 32px;
+.green-btn{
+  background-color: #618173;
+  color: black;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
 }
+
+.green-btn:hover{
+  background-color: #7da895;
+}
+
+.clear-btn{
+  background-color: none;
+  color: black;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+}
+
+.clear-btn:hover{
+  border: 1px solid #7da895;
+}
+
 </style>
