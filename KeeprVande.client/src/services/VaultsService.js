@@ -13,6 +13,16 @@ class VaultsService {
     AppState.vaults = res.data.map(pojo => new Vault(pojo))
   }
 
+  async setActive(vaultId) {
+    const res = await api.get(`api/vaults/${vaultId}`)
+
+    logger.log('[GOT VAULT BY ID]')
+  }
+
+  clearVault() {
+    AppState.activeVault = null;
+  }
+
 }
 
 export const vaultsService = new VaultsService

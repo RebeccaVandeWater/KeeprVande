@@ -37,6 +37,10 @@ export default {
   --tan: color(#CFB8AA);
 }
 
+body{
+  background-color: white;
+}
+
 .tan-btn{
   background-color: #CFB8AA;
   color: black;

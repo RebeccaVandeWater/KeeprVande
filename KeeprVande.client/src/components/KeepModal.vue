@@ -48,7 +48,6 @@
                   </button>
                 </form>
               </div>
-              <!-- FIXME Close the modal when routed to the creator's profile -->
               <div class="col-8">
                 <router-link :to="{name: 'Profile', params:{profileId: activeKeep.creatorId}}">
                   <img :src="activeKeep.creator.picture" :alt="activeKeep.creator.name" class="img-fluid avatar-sm">
