@@ -6,12 +6,9 @@
       </p>
     </div>
     <div class="p-2">
-      <!-- <router-link> -->
-        <img :src="keepProp.creator.picture" :alt="keepProp.creator.name" class="img-fluid avatar-sm">
-      <!-- </router-link> -->
+      <img :src="keepProp.creator.picture" :alt="keepProp.creator.name" class="img-fluid avatar-sm" :title="keepProp.creator.name">
     </div>
   </button>
-<KeepModal />
 </template>
 
 

@@ -48,11 +48,11 @@
                   </button>
                 </form>
               </div>
-              <!-- FIXME Make this div a router link to the creator's profile -->
+              <!-- FIXME Close the modal when routed to the creator's profile -->
               <div class="col-8">
-                <router-link>
+                <router-link :to="{name: 'Profile', params:{profileId: activeKeep.creatorId}}">
                   <img :src="activeKeep.creator.picture" :alt="activeKeep.creator.name" class="img-fluid avatar-sm">
-                  <span class="fw-bold ps-2">{{ activeKeep.creator.name }}</span>
+                  <span class="fw-bold text-dark ps-2">{{ activeKeep.creator.name }}</span>
                 </router-link>
               </div>
             </section>

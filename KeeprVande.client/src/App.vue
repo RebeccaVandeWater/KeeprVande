@@ -5,12 +5,15 @@
   <main>
     <router-view />
   </main>
+<KeepModal />
+
 </template>
 
 <script>
 import { computed } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
+import KeepModal from './components/KeepModal.vue'
 
 export default {
   setup() {
@@ -18,7 +21,7 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar }
+  components: { Navbar, KeepModal }
 }
 </script>
 <style lang="scss">
@@ -75,6 +78,15 @@ export default {
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
+}
+
+.avatar-md{
+  height: 4.5rem;
+  width: 4.5rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 1px solid white;
 }
 
 // .masonry-style{
