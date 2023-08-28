@@ -1,5 +1,5 @@
 <template>
-  <div class="container bg-white" v-if="activeProfile">
+  <div class="container" v-if="activeProfile">
     <section class="row">
       <div class="col-12 text-center">
         <div class="mt-5">
@@ -40,7 +40,7 @@
       </div>
     </section>
   </div>
-  <div class="container-fluid bg-white" v-else>
+  <div class="container" v-else>
     <section class="row">
       <div class="col-12">
         <h1>

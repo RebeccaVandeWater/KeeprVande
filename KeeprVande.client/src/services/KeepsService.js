@@ -27,6 +27,11 @@ class KeepsService {
 
     AppState.keeps = res.data.map(pojo => new Keep(pojo))
   }
+
+  clearKeep() {
+    AppState.activeKeep = null;
+  }
+
 }
 
 export const keepsService = new KeepsService

@@ -49,7 +49,7 @@ export default {
   font-family: 'Elsie', cursive;
   font-weight: 900;
   font-size: larger;
-  color: rgb(239, 231, 221);
+  color: whitesmoke;
   text-shadow: 2px 2px 2px black;
 }
 </style>

@@ -4,7 +4,7 @@
       <div class="modal-content">
         <div class="modal-body row" v-if="activeKeep">
           <div class="col-12 col-md-6">
-            <img :src="activeKeep.img" :alt="activeKeep.name" class="img-fluid">
+            <img :src="activeKeep.img" :alt="activeKeep.name" class="img-fluid img-style">
           </div>
           <div class="col-12 col-md-6 d-flex flex-column justify-content-between">
             <section class="row justify-content-center fs-5">
@@ -48,6 +48,7 @@
                   </button>
                 </form>
               </div>
+              <!-- FIXME Close the modal when routed to the creator's profile -->
               <div class="col-8">
                 <router-link :to="{name: 'Profile', params:{profileId: activeKeep.creatorId}}">
                   <img :src="activeKeep.creator.picture" :alt="activeKeep.creator.name" class="img-fluid avatar-sm">
@@ -78,5 +79,10 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.img-style{
+  border-top-left-radius: 2.5%;
+  border-bottom-left-radius: 2.5%;
+  height: max-content;
+  width: max-content;
+}
 </style>

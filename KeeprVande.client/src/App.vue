@@ -10,15 +10,32 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 import KeepModal from './components/KeepModal.vue'
+import Pop from './utils/Pop.js'
+import { keepsService } from './services/KeepsService.js'
 
 export default {
   setup() {
+    const keepModal = document.getElementById('keepModal')
+
+    // keepModal.addEventListener('hidden.bs.modal', clearKeep => {
+    // clearKeep()
+    // })
+
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+
+      clearKeep(){
+      try {
+        keepsService.clearKeep()
+      }
+      catch (error) {
+        Pop.error(error.message);
+      }
+    }
     }
   },
   components: { Navbar, KeepModal }
@@ -26,7 +43,7 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
-@import url('https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Yeseva+One&display=swap');
 
 :root{
   --main-height: calc(100vh - 32px - 64px);
@@ -69,6 +86,22 @@ body{
   font-family: 'Elsie', cursive;
   font-weight: 900;
   font-size: larger;
+}
+
+.vault-name-font{
+  font-family: 'Yeseva One', cursive;
+  font-weight: 900;
+  font-size: x-large;
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px black;
+}
+
+.vault-text-font{
+  font-family: 'Yeseva One', cursive;
+  font-weight: 900;
+  font-size: larger;
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px black;
 }
 
 .dropdown-style{
